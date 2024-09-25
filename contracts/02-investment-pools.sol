@@ -91,6 +91,7 @@ contract InvestmentPools is Ownable {
         );
 
         pool.fishBalance += fishAmount;
+        pool.usdcBalance += fishAmount / exchangeRate;
         fishToken.transferFrom(msg.sender, address(this), fishAmount);
 
         emit UserDeposited(poolId, msg.sender, fishAmount);
@@ -102,6 +103,7 @@ contract InvestmentPools is Ownable {
         Pool storage pool = pools[poolId];
 
         pool.fishBalance -= fishAmount;
+        pool.usdcBalance -= fishAmount / exchangeRate;
         fishToken.transfer(msg.sender, fishAmount);
 
         emit UserWithdraw(poolId, msg.sender, fishAmount);
