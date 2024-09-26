@@ -1,0 +1,11 @@
+import { TOKEN_NAME, TOKEN_SYMBOL } from "./constants";
+
+const USDC_CONTRACT_ADDRESS = "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8";
+const EXCHANGE_RATE = BigInt(10 ** 12);
+
+module.exports = [
+  TOKEN_NAME,
+  TOKEN_SYMBOL,
+  USDC_CONTRACT_ADDRESS,
+  EXCHANGE_RATE,
+];

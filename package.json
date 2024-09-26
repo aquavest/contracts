@@ -4,7 +4,11 @@
   "description": "This application would be a collection of aquavest smart contracts development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx ts-node scripts/01-Deployment.ts",
+    "verify:fish-token": "npx hardhat verify --network sepolia --constructor-args arguments/fishTokenArgument.ts",
+    "verify:investment-pools": "npx hardhat verify --network sepolia --constructor-args arguments/investmentPoolsArgument.ts"
   },
   "repository": {
     "type": "git",
