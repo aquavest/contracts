@@ -21,12 +21,14 @@ contract InvestmentPools is Ownable {
     event UserDeposited(
         uint256 indexed poolId,
         address indexed user,
-        uint256 fishAmount
+        uint256 fishAmount,
+        uint256 usdcAmount
     );
     event UserWithdraw(
         uint256 indexed poolId,
         address indexed user,
-        uint256 fishAmount
+        uint256 fishAmount,
+        uint256 usdcAmount
     );
     event PoolWithdrawn(
         uint256 indexed poolId,
@@ -94,7 +96,12 @@ contract InvestmentPools is Ownable {
         pool.usdcBalance += fishAmount / exchangeRate;
         fishToken.transferFrom(msg.sender, address(this), fishAmount);
 
-        emit UserDeposited(poolId, msg.sender, fishAmount);
+        emit UserDeposited(
+            poolId,
+            msg.sender,
+            fishAmount,
+            fishAmount / exchangeRate
+        );
     }
 
     function userWithdraw(uint256 poolId, uint256 fishAmount) external {
@@ -106,7 +113,12 @@ contract InvestmentPools is Ownable {
         pool.usdcBalance -= fishAmount / exchangeRate;
         fishToken.transfer(msg.sender, fishAmount);
 
-        emit UserWithdraw(poolId, msg.sender, fishAmount);
+        emit UserWithdraw(
+            poolId,
+            msg.sender,
+            fishAmount,
+            fishAmount / exchangeRate
+        );
     }
 
     function withdrawPool(
