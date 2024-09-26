@@ -4,7 +4,7 @@ import "@nomicfoundation/hardhat-toolbox-viem";
 import { ETHERSCAN_API, RPC_URL, USER_PRIVATE_KEY } from "./helpers/constants";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.24",
+  solidity: "0.8.27",
   networks: {
     sepolia: {
       url: RPC_URL,
