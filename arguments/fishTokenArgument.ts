@@ -1,4 +1,3 @@
-export const TOKEN_NAME = "Aquavest Token";
-export const TOKEN_SYMBOL = "FISH";
+import { TOKEN_NAME, TOKEN_SYMBOL } from "./constants";
 
 module.exports = [TOKEN_NAME, TOKEN_SYMBOL];
