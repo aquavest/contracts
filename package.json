@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/tianbuyung/aquavest-contracts.git"
+    "url": "git@github.com:aquavest/contracts.git"
   },
   "keywords": [
     "solidity",
@@ -24,9 +24,9 @@
   "author": "Septian Maulana",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tianbuyung/aquavest-contracts/issues"
+    "url": "https://github.com/aquavest/contracts/issues"
   },
-  "homepage": "https://github.com/tianbuyung/aquavest-contracts#readme",
+  "homepage": "https://github.com/aquavest/contracts#readme",
   "packageManager": "yarn@4.4.1+sha512.f825273d0689cc9ead3259c14998037662f1dcd06912637b21a450e8da7cfeb4b1965bbee73d16927baa1201054126bc385c6f43ff4aa705c8631d26e12460f1",
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^0.15.0",

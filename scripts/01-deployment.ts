@@ -7,10 +7,10 @@ import {
 
 import { userConnectWallet } from "../helpers/userConnectWallet";
 import { connectToBlockchainWithRPC } from "../helpers/connectToBlockchainWithRPC";
+import { USDC_CONTRACT_ADDRESS } from "../helpers/constants";
 
 const TOKEN_NAME = "Aquavest Token";
 const TOKEN_SYMBOL = "FISH";
-const USDC_CONTRACT_ADDRESS = "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8";
 const EXCHANGE_RATE = BigInt(10 ** 12); // Set exchange rate to 10^12 (1 USDC = 1 FISH, accounting for decimal difference)
 
 async function getUserAccount() {
