@@ -16,6 +16,7 @@ contract InvestmentPools is Ownable {
     FishToken public fishToken;
     IERC20 public usdcToken;
     mapping(uint256 => Pool) public pools;
+    mapping(uint256 => mapping(address => uint256)) public userFishBalance;
     uint256 public poolCount;
 
     event UserDeposited(
@@ -94,6 +95,7 @@ contract InvestmentPools is Ownable {
 
         pool.fishBalance += fishAmount;
         pool.usdcBalance += fishAmount / exchangeRate;
+        userFishBalance[poolId][msg.sender] += fishAmount;
         fishToken.transferFrom(msg.sender, address(this), fishAmount);
 
         emit UserDeposited(
@@ -108,9 +110,13 @@ contract InvestmentPools is Ownable {
         require(fishAmount > 0, "Amount must be greater than zero");
 
         Pool storage pool = pools[poolId];
+        uint256 userBalance = userFishBalance[poolId][msg.sender];
+
+        require(userBalance >= fishAmount, "Insufficient user balance");
 
         pool.fishBalance -= fishAmount;
         pool.usdcBalance -= fishAmount / exchangeRate;
+        userFishBalance[poolId][msg.sender] -= fishAmount;
         fishToken.transfer(msg.sender, fishAmount);
 
         emit UserWithdraw(
