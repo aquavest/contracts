@@ -4,10 +4,24 @@ import "@nomicfoundation/hardhat-toolbox-viem";
 import { ETHERSCAN_API, RPC_URL, USER_PRIVATE_KEY } from "./helpers/constants";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.27",
+  solidity: {
+    version: "0.8.27",
+    settings: {
+      evmVersion: "shanghai",
+      optimizer: {
+        enabled: true,
+        runs: 1000,
+      },
+    },
+  },
   networks: {
     sepolia: {
       url: RPC_URL,
+      accounts: [USER_PRIVATE_KEY],
+    },
+    neoXT4: {
+      url: RPC_URL,
+      chainId: 12227332,
       accounts: [USER_PRIVATE_KEY],
     },
   },

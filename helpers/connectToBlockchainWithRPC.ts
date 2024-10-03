@@ -1,11 +1,10 @@
 import { createPublicClient } from "viem";
-import { sepolia } from "viem/chains";
 
-import { TRANSPORT } from "./constants";
+import { chainToUse, TRANSPORT } from "./constants";
 
 export const connectToBlockchainWithRPC = async () => {
   const publicClient = createPublicClient({
-    chain: sepolia,
+    chain: chainToUse,
     transport: TRANSPORT,
   });
 
